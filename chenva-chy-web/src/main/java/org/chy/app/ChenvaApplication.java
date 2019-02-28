@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
+@SpringBootApplication //等价于 @ComponentScan + @EnableAutoConfiguration + @Configuration
 @MapperScan({"com.dao", "org.chy.platform.*.dao"})
 @ComponentScan({
         "com.controller",

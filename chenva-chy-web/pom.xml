@@ -39,6 +39,12 @@
             <version>5.1.47</version>
             <!--<scope>runtime</scope>-->
         </dependency>
+        <!-- 打印完整的sql语句 -->
+        <dependency>
+            <groupId>com.googlecode.log4jdbc</groupId>
+            <artifactId>log4jdbc</artifactId>
+            <version>1.2</version>
+        </dependency>
     </dependencies>
 
     <build>
