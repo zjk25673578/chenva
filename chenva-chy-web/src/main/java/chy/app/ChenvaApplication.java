@@ -1,4 +1,4 @@
-package com.mostchh.app;
+package chy.app;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -10,9 +10,9 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan({"com.controller", "com.service"})
 public class ChenvaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ChenvaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ChenvaApplication.class, args);
+    }
 
 }
 

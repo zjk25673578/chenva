@@ -12,12 +12,13 @@
     <artifactId>chenva</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>chenva-service</module>
-        <module>chenva-util</module>
-        <module>chenva-dao</module>
-        <module>chenva-api</module>
-        <module>chenva-chy-web</module>
         <module>chenva-pojo</module>
+        <module>chenva-dao</module>
+        <module>chenva-service</module>
+        <module>chenva-api</module>
+        <module>chenva-util</module>
+        <module>chenva-chy-web</module>
+        <module>chenva-core</module>
     </modules>
 
     <name>chenva</name>
@@ -31,73 +32,72 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-
         <java.version>1.8</java.version>
-        <!-- log4j -->
         <log4j.version>1.2.17</log4j.version>
+        <mybatis.plus.version>3.0.6</mybatis.plus.version>
+        <fastjson.version>1.2.54</fastjson.version>
+        <com.alibaba.druid.version>1.1.14</com.alibaba.druid.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
+            <scope>test</scope>
         </dependency>
 
+<!-- spring boot start -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+    <!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-        <!--</dependency>-->
-
-        <!--模板引擎-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-
+    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--        <dependency>
-                    <groupId>org.mybatis.spring.boot</groupId>
-                    <artifactId>mybatis-spring-boot-starter</artifactId>
-                    <version>1.3.2</version>
-                </dependency>-->
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- mybatis plus -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.0.6</version>
+            <version>${mybatis.plus.version}</version>
         </dependency>
+<!-- spring boot end -->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.47</version>
-            <!--<scope>runtime</scope>-->
-        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.1.4</version>
+            <version>${com.alibaba.druid.version}</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!-- 保证版本的一致性 -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator</artifactId>
             <version>0.31</version>
         </dependency>
+        <!-- 前端引入的静态文件 -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>bootstrap</artifactId>
@@ -108,51 +108,46 @@
             <artifactId>jquery</artifactId>
             <version>3.3.1</version>
         </dependency>
-
-        <!-- log4j -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
-
         <!-- pinyin4j -->
         <dependency>
             <groupId>com.belerweb</groupId>
             <artifactId>pinyin4j</artifactId>
             <version>2.5.0</version>
         </dependency>
-
+        <!-- 文件格式转换 -->
         <dependency>
             <groupId>com.artofsolving</groupId>
             <artifactId>jodconverter</artifactId>
             <version>2.1.1</version>
         </dependency>
-
+        <!-- log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <!-- shiro -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
             <version>1.3.2</version>
         </dependency>
-
-
         <!-- Freemark的Shiro标签 -->
         <dependency>
             <groupId>net.mingsoft</groupId>
             <artifactId>shiro-freemarker-tags</artifactId>
             <version>0.1</version>
         </dependency>
-
-
-        <!--        <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-test</artifactId>
-                    <scope>test</scope>
-                </dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+            <!--<scope>runtime</scope>-->
+        </dependency>
     </dependencies>
 
     <build>
-        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+        <pluginManagement>
             <plugins>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
@@ -191,15 +186,16 @@
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <!--如果没有fork配置,devtools不起作用，即项目修改后不会重新启动 -->
+                        <fork>true</fork>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
-    <!--    <reporting>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                </plugin>
-            </plugins>
-        </reporting>-->
 </project>
