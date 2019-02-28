@@ -54,7 +54,7 @@ public class MpGenerator {
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
-        dsc.setUrl("jdbc:mysql://localhost:3306/myhome?useUnicode=true&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/stms_bak?useUnicode=true&characterEncoding=utf8");
         mpg.setDataSource(dsc);
 
         // 策略配置
@@ -67,9 +67,9 @@ public class MpGenerator {
         /*=======================如果这个设置了这个属性, setActiveRecord(false)最好改为false==================*/
         /*======================或者让ModelParent这个类集成MybatisPlus里的Model==================*/
         // 自定义实体父类
-        strategy.setSuperEntityClass("com.util.generator.ModelParent");
+        // strategy.setSuperEntityClass("com.util.generator.ModelParent");
         // 自定义实体，公共字段
-        strategy.setSuperEntityColumns("id", "createTime", "creator", "createName", "updateTime", "updator", "updateName");
+        // strategy.setSuperEntityColumns("id", "createTime", "creator", "createName", "updateTime", "updator", "updateName");
         /*=====================================================================*/
         // 自定义 mapper 父类
         // strategy.setSuperMapperClass("com.baomidou.demo.TestMapper");

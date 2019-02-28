@@ -12,10 +12,6 @@
     <artifactId>chenva</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>chenva-pojo</module>
-        <module>chenva-dao</module>
-        <module>chenva-service</module>
-        <module>chenva-api</module>
         <module>chenva-util</module>
         <module>chenva-chy-web</module>
         <module>chenva-core</module>
@@ -65,6 +61,10 @@
     -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
@@ -79,7 +79,16 @@
             <version>${mybatis.plus.version}</version>
         </dependency>
 <!-- spring boot end -->
-
+        <!-- servlet 依赖. -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
